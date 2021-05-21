@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header class="hero is-small is=primary">
+        <div class="hero-body has-text-centered">
+            <h1 class="title">Weather Dashboard</h1>
+        </div>
+    </header>
+
+    <main class="tile is-ancestor">
+
+        <div class="tile is-vertical is-parent">
+
+            <div class="tile is-child">
+                <div class="card">
+                    <form id="search-form" class="card-content">
+                        <label class="form-label title" for="cityname">Search for a City:</label>
+                        <input type="text" name="cityname" id="cityname" class="input" placeholder="City Name"
+                            autofocus="true" />
+                        <button data-language="search" class="button is-info is-fullwidth">Search</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tile is-child">
+                <div class="card tile is-vertical">
+                    <div class="recent card-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tile is-vertical is-parent is-9">
+            
+            <div class="tile is-child">
+                <div class="current card"></div>
+            </div>
+
+            <div class="forecast"></div>
+        </div>
+
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
