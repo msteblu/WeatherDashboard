@@ -11,6 +11,7 @@ let cityInputEl = document.querySelector('#cityname');
 let recentContainer = document.querySelector(".recent");
 let currentContainer = document.querySelector('.current');
 let forecastContainer = document.querySelector('.forecast');
+let forecastHead = document.querySelector('.forecastHead');
 let cityArray = [];
 
 // FORM HANDLER FUNCTION: 
@@ -86,6 +87,7 @@ let displayWeather = function (weatherData, forecastData) {
     let weatherCity = weatherData.name;
     let weatherDate = new Date(weatherData.dt * 1000).toLocaleDateString();
     let weatherCityDate = document.createElement("li");
+    weatherCityDate.classList.add("title", "is-4");
     weatherCityDate.textContent = weatherCity + " (" + weatherDate + ")";
 
     weatherEl.appendChild(weatherCityDate);
@@ -128,11 +130,8 @@ let displayWeather = function (weatherData, forecastData) {
 
     currentContainer.innerHTML = "";
     forecastContainer.innerHTML = "";
+    forecastHead.innerHTML = "";
 
-    // Add section title
-    let currH3 = document.createElement("h3");
-    currH3.textContent = "Current Weather:";
-    currentContainer.appendChild(currH3);
 
     // Append to Current Weather Container: 
 
@@ -143,12 +142,17 @@ let displayWeather = function (weatherData, forecastData) {
 
     // Title of section
     let forH3 = document.createElement("h3");
+    forH3.classList.add("title", "is-4"); // Check if this is valid.
     forH3.textContent = "5-Day Forecast:";
-    forecastContainer.appendChild(forH3);
+    forecastHead.appendChild(forH3);
 
     for (let i = 1; i < 6; i++) {
 
+        let cardEl = document.createElement('div');
+        cardEl.classList.add("card", "tile", "is-child");
+
         let forecastEl = document.createElement('ul');
+        forecastEl.classList.add("card-content");
 
         // Date
         let unixTimeStamp = forecastData.daily[i].dt;
@@ -188,7 +192,8 @@ let displayWeather = function (weatherData, forecastData) {
 
         // Append it to the Forecast Container: 
 
-        forecastContainer.appendChild(forecastEl);
+        cardEl.appendChild(forecastEl);
+        forecastContainer.appendChild(cardEl);
 
     };
 }
