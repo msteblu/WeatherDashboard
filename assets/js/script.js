@@ -122,9 +122,26 @@ let displayWeather = function (weatherData, forecastData) {
 
     // UV Index
     let weatherUv = document.createElement('li');
-    weatherUv.textContent = "UV Index: " + forecastData.current.uvi;
+    weatherUv.textContent = "UV Index: " 
+    
+    // (changing color based on conditions)
+    let uVIndex = document.createElement('button');
+    let uVal = forecastData.current.uvi;
+    uVIndex.textContent = uVal;
+    
+        if(uVal < 3) {
+            uVIndex.classList.add("favorable");
+        } else if(uVal > 7) {
+            uVIndex.classList.add("severe");
+        } else {
+            uVIndex.classList.add("moderate");
+        };
+
+    // (append UV Index value to the list item)
+    weatherUv.appendChild(uVIndex);
 
     weatherEl.appendChild(weatherUv);
+
 
     // Clear out div content containers
 
@@ -229,7 +246,8 @@ let renderCityArray = function () {
 
     // Title of section
     let recH3 = document.createElement("h3");
-    recH3.textContent = "Recent Cities:";
+    recH3.classList.add("title", "is-6");
+    recH3.textContent = "Recent City Searches:";
     recentContainer.appendChild(recH3);
 
     // Render a new paragraph and button for each city
