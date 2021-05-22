@@ -159,7 +159,7 @@ let displayWeather = function (weatherData, forecastData) {
 
     // Title of section
     let forH3 = document.createElement("h3");
-    forH3.classList.add("title", "is-4"); // Check if this is valid.
+    forH3.classList.add("title", "is-4"); 
     forH3.textContent = "5-Day Forecast:";
     forecastHead.appendChild(forH3);
 
@@ -175,6 +175,7 @@ let displayWeather = function (weatherData, forecastData) {
         let unixTimeStamp = forecastData.daily[i].dt;
         let weatherDate = new Date(unixTimeStamp * 1000).toLocaleDateString();
         let timeEL = document.createElement("li");
+        timeEL.classList.add("title", "is-6");
         timeEL.textContent = weatherDate;
 
         forecastEl.appendChild(timeEL);

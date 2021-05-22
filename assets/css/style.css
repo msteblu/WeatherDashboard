@@ -1,3 +1,35 @@
+
+/* Header */
+.hero {
+    background-image: linear-gradient(to right, #ffcc00 , #cc0000);
+}
+
+.hero h1 {
+    color: white;
+}
+
+
+/* Search Section*/
+#search-form label {
+    margin: 10px 0px;
+}
+
+#search-form input {
+    margin: 10px 0px;
+}
+
+#search-form button {
+    margin: 10px 0px;
+}
+
+
+/* Adding space to card info */
+.is-9 {
+    margin-right: 30px;
+}
+
+
+/* UV Index Condition Ratings */
 .favorable {
     background-color: green;
     color: white;
@@ -10,4 +42,10 @@
 .severe {
     background-color: #c32700;
     color: white;
+}
+
+
+/* Recent City Search Buttons */
+.city-button {
+    margin: 10px 0px;
 }
